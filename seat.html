@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select Your Seat</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .seat-header {
+      background-color: #0072ce;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .next-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color:#0072ce;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.next-btn:hover {
+  background-color: #f1910b;
+  color: white;
+  transform: translateY(-2px);
+}
+
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+    }
+
+    .back-btn, .next-btn {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .route {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .exchange-icon {
+      margin: 0 10px;
+    }
+
+    .date {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .bus-details {
+      background-color: #fff;
+      color: #333;
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .price-box {
+      text-align: right;
+    }
+
+    .travel-name {
+      font-weight: bold;
+    }
+
+    .legend {
+      display: flex;
+      justify-content: space-around;
+      background: white;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .box {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 5px;
+      border-radius: 4px;
+    }
+
+    .booked { background-color: #0056b3; }
+    .available { background-color: #ccc; }
+    .selected, .your-seat { background-color: orange; }
+
+    .seat-layout {
+      background: white;
+      margin: 20px;
+      border-radius: 15px;
+      padding: 15px;
+      position: relative;
+    }
+
+    .driver {
+      position: absolute;
+      top: -30px;
+      right: 10px;
+    }
+
+    .driver img {
+      width: 70px;
+    }
+
+    .columns {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0 10px;
+      font-weight: bold;
+      padding: 0 25px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      padding: 0 25px;
+    }
+
+    .seat {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    .deck-toggle {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .deck-toggle button {
+      padding: 10px 20px;
+      border: none;
+      font-weight: bold;
+      background: white;
+      border-radius: 8px;
+      margin: 0 5px;
+      cursor: pointer;
+      border: 2px solid #0072ce;
+      color: #0072ce;
+    }
+
+    .deck-toggle button.active {
+      background: #0072ce;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="seat-header">
+    <div class="top-row">
+      <a href="bus.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+      <span class="title">Choose your seat!</span>
+      <div class="top-bar">
+        <a href="boarding.html" class="next-btn">Next</a>
+      </div>
+      </div>
+    </div>
+    <div class="route">
+      <span>KTM</span>
+      <i class="fas fa-arrows-alt-h exchange-icon"></i>
+      <span>Pokhara</span>
+    </div>
+    <div class="date">12th - Jan - 2023 | Monday</div>
+
+    <div class="bus-details">
+      <div class="time"><strong>6:00 PM</strong> – 3:00 AM</div>
+      <div>
+        <div class="travel-name">Sangitam Travels</div>
+        <div class="bus-type">A/C Sleeper (2+2)</div>
+      </div>
+      <div class="price-box">
+        <div class="price">From<br><strong>Rs.600</strong></div>
+        <div class="duration">9 Hours</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div><span class="box booked"></span> Booked</div>
+    <div><span class="box available"></span> Available</div>
+    <div><span class="box your-seat"></span> Your Seat</div>
+  </div>
+
+  <div class="seat-layout">
+    <div class="driver"><img src="driver-removebg-preview.png" alt="Driver Icon"></div>
+    <div class="columns">
+      <span>A</span>
+      <span>B</span>
+      <span>C</span>
+      <span>D</span>
+    </div>
+
+    
+    <div class="row">
+      <div class="seat booked"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat booked"></div>
+    </div>
+    <div class="row">
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat selected"></div>
+      <div class="seat selected"></div>
+    </div>
+    <div class="row">
+      <div class="seat booked"></div>
+      <div class="seat booked"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+    </div>
+    <div class="row">
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat booked"></div>
+      <div class="seat booked"></div>
+    </div>
+
+    <div class="row">
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat available"></div>
+      <div class="seat booked"></div>
+    </div>
+  </div>
+
+  <div class="deck-toggle">
+    <button class="active">LOWER</button>
+    <button>UPPER</button>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EasyTrip</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #0080ff;
+      color: #fff;
+    }
+
+    header {
+      background: linear-gradient(to right, #005eb8, #ffcc00);
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 28px;
+      color: #fff;
+      z-index: 1;
+    }
+
+    .nav-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .dropdown select {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #000;
+      font-weight: 600;
+    }
+
+    .auth-buttons {
+      position: absolute;
+      right: 30px;
+      top: 30px;
+      z-index: 1;
+    }
+
+    .auth-buttons a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      margin-left: 15px;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px;
+      background: linear-gradient(45deg, #005eb8, #ffcc00); /* Gradient same as navbar */
+    }
+
+    .hero-text {
+      max-width: 50%;
+    }
+
+    .hero-text h2 {
+      font-size: 36px;
+      color: #fff;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      margin-top: 15px;
+    }
+
+    .hero img {
+      width: 300px;
+    }
+
+    .search-bar {
+      background: #fff;
+      padding: 10px;
+      margin: 30px auto;
+      width: 90%;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #000;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+    }
+
+    .search-bar button {
+      background: orange;
+      padding: 10px 20px;
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .destinations,
+    .travel-type,
+    .testimonials {
+      background: #0070e0;
+      border-radius: 20px;
+      padding: 30px;
+      margin: 20px auto;
+      width: 90%;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #fff;
+      color: #000;
+      border-radius: 15px;
+      width: 200px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    .card p,
+    .card h4 {
+      padding: 10px;
+    }
+
+    footer {
+      background: #ffcc00;
+      color: #000;
+      padding: 30px 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    footer div {
+      max-width: 300px;
+    }
+
+    footer h4 {
+      margin-bottom: 10px;
+    }
+
+    footer p,
+    footer a {
+      color: #000;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .buttons button {
+      padding: 10px 15px;
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .buttons button:hover {
+      background-color: #e6b800;
+    }
+
+    .credit {
+      text-align: center;
+      background-color: #ffcc00;
+      padding: 15px;
+      color: #000;
+      font-size: 14px;
+    }
+    .custom-search-bar {
+  background: white;
+  width: 90%;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.search-field {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+  min-width: 120px;
+}
+
+.search-field label {
+  font-weight: 700;
+  color: #000;
+}
+
+.search-field p {
+  font-weight: 500;
+  color: #888;
+  margin-top: 5px;
+}
+
+.search-icon button {
+  background-color: #ffb703;
+  border: none;
+  padding: 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.search-icon span {
+  color: black;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>easytrip</h1>
+    <div class="nav-wrapper">
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Tour</a>
+        <a href="#">Packages</a>
+        <div class="dropdown">
+          <select>
+            <option selected>Country</option>
+            <option value="np">Nepal</option>
+            <option value="in">India</option>
+            <option value="th">Thailand</option>
+            <option value="bh">Bhutan</option>
+          </select>
+        </div>
+      </nav>
+    </div>
+    <div class="auth-buttons">
+        <a href="login.html" class="nav-login">Login</a>
+        <a href="signup.html">Sign Up</a>
+    </div>
+  </header>
+  <a href="admin-login.html" class="admin-link">Admin Login</a>
+  <style>
+    .admin-link {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: white;
+      color: #0072ce;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    </style>
+
+  <div class="hero">
+    <div class="hero-text">
+      <p>Top Travel Destinations in Nepal</p>
+      <h2>EasyTrip - your journey simplified.</h2>
+      <p>Discover the Best Holiday Destinations in Nepal. From Majestic Himalayan Peaks to Serene Lakes and Vibrant Cultural Cities! -By Aashish Ghimire</p>
+    </div>
+    <img src="images-removebg-preview.png" alt="Traveler">
+  </div>
+
+  <div class="custom-search-bar">
+    <div class="search-field">
+      <label for="destination">Destination</label>
+      <select id="destination">
+        <option value="kathmandu">Kathmandu</option>
+        <option value="pokhara">Pokhara</option>
+        <option value="mustang">Mustang</option>
+        <option value="panchase">Panchase</option>
+      </select>
+    </div>
+  
+    <div class="search-field">
+      <label for="date">Date</label>
+      <input type="date" id="date" />
+    </div>
+  
+    <div class="search-field">
+      <label for="guesthouse">GuestHouse</label>
+      <select id="guesthouse">
+        <option>Select GuestHouse</option>
+        <option value="peaceful-inn">Peaceful Inn</option>
+        <option value="mount-view">Mount View Lodge</option>
+        <option value="lake-paradise">Lake Paradise</option>
+      </select>
+    </div>
+  
+    <div class="search-field">
+      <label for="transport">Transportation</label>
+      <select id="transport">
+        <option value="bus">Bus</option>
+        <option value="airplane">Airplane</option>
+        <option value="private">Private Vehicle</option>
+      </select>
+    </div>
+  
+    <div class="search-field">
+      <label for="people">People</label>
+      <input type="number" id="people" placeholder="How many people?" min="1" />
+    </div>
+  
+    <div class="search-icon">
+      <button><span>&#128269;</span></button>
+    </div>
+  </div>
+  
+  
+
+  <section class="destinations" style="padding: 40px;">
+    <p style="color: #ffcc00; font-weight: 700; font-size: 22px;">Top Destinations</p>
+    <h2 style="font-size: 45px; color: #fff; font-weight: 800; font-family: 'Poppins', sans-serif; margin-bottom: 30px;">Explore Top Destinations</h2>
+    
+    <div class="cards" style="display: flex; gap: 30px; flex-wrap: wrap; justify-content: center;">
+      
+      <div class="card" style="background-color: #fff; width: 320px; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+        <img src="pokhara.jpg" alt="Pokhara" style="width: 100%; height: 220px; object-fit: cover;">
+        <h4 style="padding: 15px 15px 5px; font-size: 20px; font-weight: bold;">Pokhara, Nepal</h4>
+        <div style="padding: 0 15px; display: flex; justify-content: space-between; align-items: center;">
+          <button style="background-color: #ffcc00; border: none; padding: 8px 16px; border-radius: 8px; font-weight: bold;">Details</button>
+          <p style="font-weight: bold;">Rs.4999</p>
+        </div>
+        <div style="padding: 0 15px 15px; font-size: 18px; color: gold;">★★★★★</div>
+      </div>
+  
+      <div class="card" style="background-color: #fff; width: 320px; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+        <img src="mustang.jpg" alt="Mustang" style="width: 100%; height: 220px; object-fit: cover;">
+        <h4 style="padding: 15px 15px 5px; font-size: 20px; font-weight: bold;">Mustang, Nepal</h4>
+        <div style="padding: 0 15px; display: flex; justify-content: space-between; align-items: center;">
+          <button style="background-color: #ffcc00; border: none; padding: 8px 16px; border-radius: 8px; font-weight: bold;">Details</button>
+          <p style="font-weight: bold;">Rs.3999</p>
+        </div>
+        <div style="padding: 0 15px 15px; font-size: 18px; color: gold;">★★★★☆</div>
+      </div>
+  
+      <div class="card" style="background-color: #fff; width: 320px; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+        <img src="Rara.jpg" alt="Rara" style="width: 100%; height: 220px; object-fit: cover;">
+        <h4 style="padding: 15px 15px 5px; font-size: 20px; font-weight: bold;">Rara, Nepal</h4>
+        <div style="padding: 0 15px; display: flex; justify-content: space-between; align-items: center;">
+          <button style="background-color: #ffcc00; border: none; padding: 8px 16px; border-radius: 8px; font-weight: bold;">Details</button>
+          <p style="font-weight: bold;">Rs.2999</p>
+        </div>
+        <div style="padding: 0 15px 15px; font-size: 18px; color: gold;">★★★★☆</div>
+      </div>
+  
+    </div>
+  </section>
+  
+  
+  <section class="travel-type" style="padding: 40px;">
+    <h2 style="font-size: 45px; color: #fff; font-weight: 800; font-family: 'Poppins', sans-serif; margin-bottom: 30px;">Explore the Different Types of Travel We Specialize In</h2>
+    
+    <div class="cards" style="display: flex; gap: 30px; flex-wrap: wrap; justify-content: center;">
+      
+      <div class="card" style="background-color: #fff; width: 320px; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+        <img src="Nature.jpg" alt="Nature" style="width: 100%; height: 220px; object-fit: cover;">
+        <h4 style="padding: 15px 15px 5px; font-size: 20px; font-weight: bold;">Nature</h4>
+        <div style="padding: 0 15px; display: flex; justify-content: space-between; align-items: center;">
+          
+        </div>
+     
+      </div>
+  
+      <div class="card" style="background-color: #fff; width: 320px; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+        <img src="387b7c2a9e75ee2d03968763b4da7086.jpg" alt="Adventure" style="width: 100%; height: 220px; object-fit: cover;">
+        <h4 style="padding: 15px 15px 5px; font-size: 20px; font-weight: bold;">Adventure</h4>
+        <div style="padding: 0 15px; display: flex; justify-content: space-between; align-items: center;">
+         
+        </div>
+       
+      </div>
+  
+      <div class="card" style="background-color: #fff; width: 320px; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+        <img src="paragladiing.jpg" alt="Paragliding" style="width: 100%; height: 220px; object-fit: cover;">
+        <h4 style="padding: 15px 15px 5px; font-size: 20px; font-weight: bold;">Paragliding</h4>
+        <div style="padding: 0 15px; display: flex; justify-content: space-between; align-items: center;">
+          
+   
+      
+  
+    </div>
+  </section>
+  
+  <section class="testimonials" style="padding: 60px; background-color: #0080ff; color: #fff; text-align: center;">
+    <h2 style="font-size: 40px; margin-bottom: 40px;">What Our Clients Have to Say?</h2>
+    
+    <div class="cards" style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap;">
+      
+      <div class="card" style="width: 300px; padding: 20px; border-radius: 15px; background: rgba(255, 255, 255, 0.1); box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+        <p style="font-size: 16px; font-style: italic;">"Great experience, well organized trip!"</p>
+        <h4 style="margin-top: 15px; font-size: 18px; font-weight: bold;">Smita Dhungel</h4>
+        <div style="color: gold; font-size: 20px; margin-top: 10px;">★★★★★</div>
+      </div>
+  
+      <div class="card" style="width: 300px; padding: 20px; border-radius: 15px; background: rgba(255, 255, 255, 0.1); box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+        <p style="font-size: 16px; font-style: italic;">"Punctual and professional, highly recommend!"</p>
+        <h4 style="margin-top: 15px; font-size: 18px; font-weight: bold;">Pushpa Gurung</h4>
+        <div style="color: gold; font-size: 20px; margin-top: 10px;">★★★★☆</div>
+      </div>
+  
+      <div class="card" style="width: 300px; padding: 20px; border-radius: 15px; background: rgba(255, 255, 255, 0.1); box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+        <p style="font-size: 16px; font-style: italic;">"Beautiful locations and smooth service!"</p>
+        <h4 style="margin-top: 15px; font-size: 18px; font-weight: bold;">Nalina Rai</h4>
+        <div style="color: gold; font-size: 20px; margin-top: 10px;">★★★★★</div>
+      </div>
+  
+    </div>
+  </section>
+  
+  <footer>
+    <div>
+      <h4>easytrip</h4>
+      <p>Travel is an opportunity to explore new cultures, landscapes, and adventures. Whether it's relaxing on a beach or hiking mountains, each journey brings unforgettable memories and new experiences.</p>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <p>Trips</p>
+      <p>Experiences</p>
+      <p>Blogs</p>
+    </div>
+    <div>
+      <h4>About</h4>
+      <p>Our Story</p>
+      <p>Contact</p>
+      <p>Privacy & policy</p>
+    </div>
+    <div>
+      <h4>Contact Us</h4>
+      <p>info@easytrip.com</p>
+      <p>+977 9843696780</p>
+    </div>
+  </footer>
+
+  <div class="credit">
+    © 2025 Aashish Ghimire. All rights reserved.
+  </div>
+  <script>
+    document.querySelector('.search-icon button').addEventListener('click', function () {
+      window.location.href = 'Home.html'; // make sure this file exists!
+    });
+  </script>
+  </script>
+</body>
+</html>

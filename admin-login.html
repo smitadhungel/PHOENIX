@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Bus Ticket System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background-color: #0072ce;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: linear-gradient(135deg, #0072ce 0%, #005fa3 100%);
+        }
+        
+        .login-container {
+            width: 380px;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+        }
+        
+        .login-container:hover {
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            transform: translateY(-15px);
+        }
+        
+        .logo {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: #0072ce;
+            margin-bottom: 25px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+            position: relative;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #0072ce;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 14px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.3s;
+            background-color: #f9f9f9;
+        }
+        
+        input:focus {
+            border-color: #0072ce;
+            background-color: white;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 114, 206, 0.2);
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #0072ce;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .login-btn:hover {
+            background-color: #0061b0;
+            transform: translateY(-2px);
+        }
+        
+        .login-btn:active {
+            transform: translateY(0);
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            margin: 15px 0;
+            font-size: 14px;
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+        
+        .forgot-link {
+            display: block;
+            margin-top: 15px;
+            color: #0072ce;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        .forgot-link:hover {
+            color: #005fa3;
+            text-decoration: underline;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .input-icon {
+            position: absolute;
+            right: 15px;
+            top: 38px;
+            color: #0072ce;
+        }
+        
+        @media (max-width: 480px) {
+            .login-container {
+                width: 90%;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        
+        <h2>Admin Portal Login</h2>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter admin username" required>
+                <i class="fas fa-user input-icon"></i>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <i class="fas fa-lock input-icon"></i>
+            </div>
+            
+            <div id="errorMessage" class="error-message">
+                <i class="fas fa-exclamation-circle"></i> Invalid username or password
+            </div>
+            
+            <button type="submit" class="login-btn">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+            
+            <a href="#" class="forgot-link">Forgot password?</a>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get input values
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorElement = document.getElementById('errorMessage');
+            
+            // Simple validation (in real app, verify with server)
+            if(username === 'admin' && password === 'admin123') {
+                // Store login state
+                localStorage.setItem('adminLoggedIn', 'true');
+                
+                // Redirect to dashboard with smooth transition
+                document.querySelector('.login-container').style.opacity = '0';
+                document.querySelector('.login-container').style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    window.location.href = 'admin-dashboard.html';
+                }, 300);
+            } else {
+                // Show error message with animation
+                errorElement.style.display = 'block';
+                setTimeout(() => {
+                    errorElement.style.display = 'none';
+                }, 3000);
+                
+                // Shake animation for wrong credentials
+                document.querySelector('.login-container').style.animation = 'shake 0.5s';
+                setTimeout(() => {
+                    document.querySelector('.login-container').style.animation = '';
+                }, 500);
+            }
+        });
+
+        // Check if already logged in
+        if(localStorage.getItem('adminLoggedIn') === 'true') {
+            window.location.href = 'admin-dashboard.html';
+        }
+
+        // Add shake animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                20%, 40%, 60%, 80% { transform: translateX(5px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

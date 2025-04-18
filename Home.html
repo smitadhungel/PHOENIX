@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .landing-page {
+      background-color: #007be6;
+      color: white;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .welcome {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .welcome h1 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .welcome p {
+      font-size: 18px;
+    }
+
+    .bus-icon {
+      font-size: 60px;
+      margin: 20px 0;
+    }
+
+    .search-card {
+      background-color: #fbbd08;
+      border-radius: 16px;
+      padding: 30px 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+
+    .search-card input,
+    .search-card select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+    }
+
+    .search-card button {
+      width: 100%;
+      background-color: #f44336;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .tags {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+
+    .tags button {
+      background-color: transparent;
+      color: #ffffff;
+      border: 2px solid #fff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-style: normal;
+      font-size: medium;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tags button:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .journey-section {
+      background-color: #0072ce;
+      padding: 50px 20px;
+      color: #000;
+    }
+
+    .journey-section h2 {
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .journey-box {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .pnr-line {
+      font-size: 14px;
+      color: #999;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .pnr-label {
+      opacity: 0.6;
+    }
+
+    .pnr-number {
+      color: #777;
+    }
+
+    .journey-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .left-info {
+      flex: 2;
+    }
+
+    .point-section {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .icon {
+      font-size: 18px;
+      color: #0072ce;
+      padding-top: 5px;
+    }
+
+    .point-text {
+      font-size: 14px;
+      color: #000;
+    }
+
+    .point-label {
+      font-weight: bold;
+      color: #999;
+    }
+
+    .travel-section {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .travel-text {
+      font-size: 14px;
+      color: #000;
+    }
+
+    .sublabel {
+      color: #999;
+      font-size: 13px;
+    }
+
+    .right-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 14px;
+      color: #000;
+    }
+
+    .time-location {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .city {
+      font-weight: bold;
+      font-size: 16px;
+      color: #999;
+    }
+
+    .time {
+      font-weight: bold;
+      font-size: 16px;
+      color: #000;
+    }
+
+    .date {
+      font-size: 13px;
+      color: #777;
+    }
+
+    .to-text {
+      font-size: 12px;
+      color: orange;
+      margin: 5px 0;
+    }
+
+    @media (min-width: 768px) {
+      .welcome h1 {
+        font-size: 42px;
+      }
+
+      .search-card {
+        max-width: 600px;
+      }
+
+      .journey-box {
+        max-width: 900px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="landing-page">
+    <div class="welcome">
+      <h1>Hey John!</h1>
+      <p>Where you want to go.</p>
+      <div class="bus-icon"><i class="fas fa-bus-alt"></i></div>
+    </div>
+
+    <div class="search-card">
+      <input type="text" placeholder="Boarding From">
+      <input type="text" placeholder="Where are you going?">
+
+      <div class="tags">
+        <button>Today</button>
+        <button>Tomorrow</button>
+        <button>Other</button>
+      </div>
+
+      <button onclick="window.location.href='bus.html'">Find Buses</button>
+    </div>
+  </div>
+
+  <div class="journey-section">
+    <h2>Upcoming Journey</h2>
+    <div class="journey-box">
+      <div class="pnr-line">
+        <span class="pnr-label">PNR/Ticket No:</span> <span class="pnr-number">13392789</span>
+      </div>
+
+      <div class="journey-content">
+        <div class="left-info">
+          <div class="point-section">
+            <i class="fas fa-sign-in-alt icon"></i>
+            <div class="point-text">
+              <span class="point-label">Boarding Point</span>
+              <p><strong>8:05 PM</strong>, New Sangavi - Pick up near<br>
+              New Baneshwor - Pick up<br>
+              near Global College<br>
+              9595951132, 9028298789</p>
+            </div>
+          </div>
+
+          <div class="point-section">
+            <i class="fas fa-sign-out-alt icon"></i>
+            <div class="point-text">
+              <span class="point-label">Drop Point</span>
+              <p><strong>6:30 AM</strong>, DeepNagar<br>DeepNagar</p>
+            </div>
+          </div>
+
+          <div class="travel-section">
+            <i class="fas fa-bus icon"></i>
+            <div class="travel-text">
+              <strong>Sangitam Travels</strong><br>
+              <span class="sublabel">2X1 (30) A/C SLEEPER</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-info">
+          <div class="time-location">
+            <span class="city">KTM</span>
+            <span class="time">8:05 PM</span>
+            <span class="date">Sun, 13 Jan</span>
+          </div>
+          <span class="to-text">TO</span>
+          <div class="time-location">
+            <span class="city">Butwol</span>
+            <span class="time">6:30 AM</span>
+            <span class="date">Mon, 14 Jan</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+
+</html>

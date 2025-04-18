@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boarding & Drop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      background-color: #fff;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      background-color: #fff;
+    }
+
+    .top-section {
+      background-color: #007bff;
+      color: white;
+      padding: 20px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-row i {
+      font-size: 18px;
+    }
+
+    .title {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .route {
+      text-align: center;
+      margin-top: 5px;
+    }
+
+    .bus-info {
+      background-color: white;
+      color: #000;
+      border-radius: 10px;
+      padding: 10px;
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .bus-info .left {
+      display: flex;
+      flex-direction: column;
+      font-size: 12px;
+    }
+
+    .bus-info .left strong {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .bus-info .right {
+      text-align: right;
+      font-size: 12px;
+    }
+
+    .bus-info .right strong {
+      color: orange;
+      font-size: 16px;
+    }
+
+    .middle-section {
+      flex: 1;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    .dropdown-box {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+
+    .dropdown-box i {
+      margin-right: 10px;
+      color: #007bff;
+    }
+
+    .bottom-section {
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    }
+
+    .fare-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .fare-info .label {
+      color: #888;
+    }
+
+    .fare-info .value {
+      font-weight: bold;
+      color: #000;
+    }
+
+    .proceed-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .proceed-btn:hover {
+      background-color: #005ec4;
+    }
+
+    .icon-label {
+      display: flex;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="top-section">
+      <div class="top-row">
+        <i class="fas fa-arrow-left"></i>
+        <span style="font-size: 14px; cursor: pointer;">Next</span>
+      </div>
+      <div class="title">Choose your seat!</div>
+      <div class="route">
+        <strong>KTM</strong> <i class="fas fa-exchange-alt"></i> <strong>Pokhara</strong><br/>
+        <small>12th - Jan - 2023 | Monday</small>
+      </div>
+
+      <div class="bus-info">
+        <div class="left">
+          <strong>6:00 PM – 3:00 AM</strong>
+          <span>Sangitam Travels</span>
+          <span style="color: #888;">A/C Sleeper (2+2)</span>
+        </div>
+        <div class="right">
+          <span style="font-size: 12px;">From</span><br/>
+          <strong>Rs.600</strong><br/>
+          <span style="font-size: 12px;">9 Hours</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="middle-section">
+      <div class="dropdown-box">
+        <div class="icon-label">
+          <i class="fas fa-sign-in-alt"></i> Select Boarding Point
+        </div>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="dropdown-box">
+        <div class="icon-label">
+          <i class="fas fa-sign-out-alt"></i> Select Drop Point
+        </div>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
+
+    <div class="bottom-section">
+      <div class="fare-info">
+        <div>
+          <span class="label">Selected Seats</span><br/>
+          <span class="value">15, 16</span>
+        </div>
+        <div>
+          <span class="label">Total Fare</span><br/>
+          <span class="value">₹ 1350</span>
+        </div>
+      </div>
+      <button class="proceed-btn">Proceed</button>
+    </div>
+
+  </div>
+</body>
+</html>
